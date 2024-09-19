@@ -1,3 +1,4 @@
 
 from FoodApp import foodApp
-foodApp.Init()
+foodApp.Init() #Entry point
+
