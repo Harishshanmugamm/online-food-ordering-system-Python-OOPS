@@ -6,13 +6,14 @@ class FoodApp:
         print("<<Welcome to Online Food Ordering >>")
 
         loginsystem=LoginSystem()
-        for option in FoodApp.LoginOptions:
-            print(f"{option}.{FoodApp.LoginOptions[option]}",end=" ")
+        while True:
+            for option in FoodApp.LoginOptions:
+                print(f"{option}.{FoodApp.LoginOptions[option]}",end=" ")
 
-        print()
-        try:
-            choice = int(input("Enter your Choice: " ))
-            loginsystem.ValidateOption(choice)
-        except:
-            print("Invalid input.. Please Enter the Valid Choice")
+            print()
+            try:
+                choice = int(input("Enter your Choice: " ))
+                loginsystem.ValidateOption(choice)
+            except ValueError:
+                print("Invalid input.. Please Enter the Valid Choice")
 # FoodApp.Init()

@@ -1,9 +1,11 @@
-import re
+from Validation.Login import Mobile_No_Val, email_check,Password_Validator
 from Models.User import User
 from Models.UserManager import UserManager
 
 class LoginSystem:
     def Login(self):
+        mail_id = email_check()
+        password = Password_Validator()
         pass
 
 
@@ -11,32 +13,9 @@ class LoginSystem:
 
     def Register(self):
         name=input("Name : ")
-        checkno_true=True
-        while checkno_true:
-            mobile = input("Mobile No: ")
-            checkregex=re.fullmatch('[6-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]',mobile)
-            if checkregex!=None:
-                checkno_true=False
-            else:
-                print("Please Enter the valid Mobile Number")
-        mobile=int(mobile)
-        check_email=True
-        while check_email:
-            mail_id = input("Email Id: ")
-            checkregex = re.fullmatch('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[A-Z|a-z]{2,7}',mail_id)
-            if checkregex!=None:
-                check_email=False
-            else:
-                print("Please Enter the valid Email Address")
-        check_password=True
-        while check_password:
-            print("Note :8-16 Character with Special Characters and Symbols")
-            password = input("Password: ")
-            checkregex=re.fullmatch(r'[A-Za-z0-9!@#$%^&*()]{8,16}', password)
-            if checkregex!=None:
-                check_password=False
-            else:
-                print("Please Enter the valid Password with 8-16 Character with Special Characters and Symbols")
+        mobile=Mobile_No_Val()
+        mail_id = email_check()
+        password=Password_Validator()
         user = User(name,mobile,mail_id,password)
         UserManager.AddUser(user)
 
