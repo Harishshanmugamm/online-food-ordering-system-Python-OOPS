@@ -1,6 +1,8 @@
+from Models.User import User
 class UserManager:
     __Users = []
 
     @classmethod
-    def AddUser(cls,user):
-        cls.__Users.append(user)
+    def AddUser(cls,userobj):
+        if isinstance(userobj,User):
+            cls.__Users.append(userobj)

@@ -37,11 +37,8 @@ class LoginSystem:
                 check_password=False
             else:
                 print("Please Enter the valid Password with 8-16 Character with Special Characters and Symbols")
-
-
         user = User(name,mobile,mail_id,password)
-
-        pass
+        UserManager.AddUser(user)
 
 
 

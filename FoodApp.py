@@ -10,7 +10,9 @@ class FoodApp:
             print(f"{option}.{FoodApp.LoginOptions[option]}",end=" ")
 
         print()
-        choice = int(input("Enter your Choice: " ))
-        loginsystem.ValidateOption(choice)
-
+        try:
+            choice = int(input("Enter your Choice: " ))
+            loginsystem.ValidateOption(choice)
+        except:
+            print("Invalid input.. Please Enter the Valid Choice")
 # FoodApp.Init()
