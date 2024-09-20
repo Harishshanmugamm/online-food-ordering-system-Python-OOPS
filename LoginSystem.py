@@ -1,4 +1,6 @@
 import re
+from Models.User import User
+
 class LoginSystem:
     def Login(self):
         pass
@@ -21,7 +23,7 @@ class LoginSystem:
                 check_email=False
             else:
                 print("Please Enter the valid Email Address")
-
+        mail_id = mail_id
         check_password=True
         while check_password:
             print("Note :8-16 Character with Special Characters and Symbols")
@@ -31,9 +33,8 @@ class LoginSystem:
                 check_password=False
             else:
                 print("Please Enter the valid Password with 8-16 Character with Special Characters and Symbols")
-
-
-
+        password = password
+        user = User(name,mobile,mail_id,password)
         pass
     def Guest(self):
         pass

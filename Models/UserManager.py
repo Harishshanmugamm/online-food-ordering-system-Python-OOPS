@@ -1,0 +1,2 @@
+class UserManager:
+    __Users = []
