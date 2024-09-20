@@ -1,9 +1,14 @@
 import re
 from Models.User import User
+from Models.UserManager import UserManager
 
 class LoginSystem:
     def Login(self):
         pass
+
+
+
+
     def Register(self):
         name=input("Name : ")
         checkno_true=True
@@ -23,7 +28,6 @@ class LoginSystem:
                 check_email=False
             else:
                 print("Please Enter the valid Email Address")
-        mail_id = mail_id
         check_password=True
         while check_password:
             print("Note :8-16 Character with Special Characters and Symbols")
@@ -33,11 +37,21 @@ class LoginSystem:
                 check_password=False
             else:
                 print("Please Enter the valid Password with 8-16 Character with Special Characters and Symbols")
-        password = password
+
+
         user = User(name,mobile,mail_id,password)
+
         pass
+
+
+
+
     def Guest(self):
         pass
+
+
+
+
     def ValidateOption(self,option):
         match option:
             case 1:
