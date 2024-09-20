@@ -6,9 +6,12 @@ class LoginSystem:
     def Login(self):
         mail_id = email_check()
         password = Password_Validator()
-        pass
-
-
+        user = UserManager.FindUser(mail_id,password)
+        if user is not None:
+            print("Login Successfull......")
+            pass
+        else:
+            print("Invalid Email_id / Password...... Please Retry!!")
 
 
     def Register(self):
