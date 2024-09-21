@@ -4,3 +4,6 @@ class MainMenu:
 
     def __init__(self):
         self.__FoodManager = FoodManager()
+
+    def Start(self):
+        pass

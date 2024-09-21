@@ -1,6 +1,7 @@
 from Validation.Login import Mobile_No_Val, email_check,Password_Validator
 from Models.User import User
 from Models.UserManager import UserManager
+from Controllers.MainMenu import MainMenu
 
 class LoginSystem:
     def Login(self):
@@ -9,7 +10,7 @@ class LoginSystem:
         user = UserManager.FindUser(mail_id,password)
         if user is not None:
             print("Login Successful......")
-            pass
+            menu =MainMenu()
         else:
             print("Invalid Email_id / Password...... Please Retry!!")
 
