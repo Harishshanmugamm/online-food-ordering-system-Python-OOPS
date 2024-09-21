@@ -1,4 +1,4 @@
-from FoodManager import FoodManager
+from Controllers.FoodManager import FoodManager
 
 class MainMenu:
 

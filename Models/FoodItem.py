@@ -1,4 +1,4 @@
-from AbstractItem import AbstractItem
+from Models.AbstractItem import AbstractItem
 class FoodItem(AbstractItem):
 
     def __init__(self,name,rating,price,description):
