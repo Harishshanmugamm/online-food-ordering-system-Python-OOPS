@@ -1,5 +1,6 @@
-class FoodMenu:
+from AbstractItem import AbstractItem
+class FoodMenu(AbstractItem):
 
     def __init__(self,name):
-        self.Name=name
+        super().__init__(name)
         self.FoodItems=[]
