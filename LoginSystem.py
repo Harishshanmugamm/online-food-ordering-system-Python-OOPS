@@ -23,25 +23,25 @@ class LoginSystem:
         UserManager.AddUser(user)
 
 
-
-
     def Guest(self):
         pass
 
-
+    def Exit(self):
+        print("Thankyou for using our Food App")
+        exit()
 
 
     def ValidateOption(self,option):
-        match option:
-            case 1:
-                self.Login()
-            case 2:
-                self.Register()
-            case 3:
-                self.Guest()
-            case 4:
-                print("Thankyou for using our Food App")
-                exit()
-            case _ :
-                print("Enter Options 1 to 4 ")
+        # match option:
+        #     case 1:
+        #         self.Login()
+        #     case 2:
+        #         self.Register()
+        #     case 3:
+        #         self.Guest()
+        #     case 4:
+        #        self.Exit()
+        #     case _ :
+        #         print("Enter Options 1 to 4 ")
+        getattr(self,option)()
         pass

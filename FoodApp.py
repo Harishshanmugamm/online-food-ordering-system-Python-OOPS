@@ -13,7 +13,7 @@ class FoodApp:
             print()
             try:
                 choice = int(input("Enter your Choice: " ))
-                loginsystem.ValidateOption(choice)
-            except ValueError:
+                loginsystem.ValidateOption(FoodApp.LoginOptions[choice])
+            except (ValueError,KeyError):
                 print("Invalid input.. Please Enter the Valid Choice")
 # FoodApp.Init()
