@@ -8,7 +8,7 @@ class LoginSystem:
         password = Password_Validator()
         user = UserManager.FindUser(mail_id,password)
         if user is not None:
-            print("Login Successfull......")
+            print("Login Successful......")
             pass
         else:
             print("Invalid Email_id / Password...... Please Retry!!")
@@ -27,7 +27,7 @@ class LoginSystem:
         pass
 
     def Exit(self):
-        print("Thankyou for using our Food App")
+        print("Thank you for using our Food App")
         exit()
 
 
