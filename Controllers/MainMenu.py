@@ -39,8 +39,8 @@ class MainMenu:
             # Sort restaurants by rating
             sorted_restaurants = sorted(self.__FoodManager.Restaurants, key=lambda x: x.Rating, reverse=True)
         elif sort_choice == 2:
-            # Sort restaurants by average price
-            sorted_restaurants = sorted(self.__FoodManager.Restaurants, key=lambda x: x.AvgPrice)
+            # Sort restaurants by average price of food items
+            sorted_restaurants = sorted(self.__FoodManager.Restaurants, key=lambda x: self.CalculateAveragePrice(x))
         else:
             print("Invalid choice. Showing restaurants by rating as default.")
             sorted_restaurants = sorted(self.__FoodManager.Restaurants, key=lambda x: x.Rating, reverse=True)
@@ -48,8 +48,14 @@ class MainMenu:
         print("\nTop Restaurants:")
         print("-" * 50)
         for i, res in enumerate(sorted_restaurants, 1):
-            print(f"{i}. {res.DisplayItem()} (Rating: {res.Rating}, Avg Price: {res.AvgPrice})")
+            avg_price = self.CalculateAveragePrice(res)
+            print(f"{i}. {res.DisplayItem()} (Rating: {res.Rating}, Avg Price: {avg_price})")
         print("-" * 50)
+
+    def CalculateAveragePrice(self, restaurant):
+        total_price = sum([item.Price for menu in restaurant.FoodMenus for item in menu.FoodItems])
+        total_items = sum([len(menu.FoodItems) for menu in restaurant.FoodMenus])
+        return total_price // total_items if total_items > 0 else 0
 
     def ShowFoodItems(self, foodItems=None):
         if foodItems is not None:
@@ -73,10 +79,9 @@ class MainMenu:
                     print(f"  {menus.DisplayItem()}")
                     for item in menus.FoodItems:
                         print(f"    - {item.DisplayItem()}")
-                        food_items.append(item)  # Collect all food items from all menus
+                        food_items.append(item)
             print("-" * 100)
 
-            # Allow user to add items to cart from the entire list
             if food_items:
                 choices = list(
                     map(int, input("Please Choose your food items from the list (comma separated): ").split(',')))
