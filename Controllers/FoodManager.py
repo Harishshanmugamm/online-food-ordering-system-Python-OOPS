@@ -56,6 +56,5 @@ class FoodManager:
             for menu in res.FoodMenus:
                 for item in menu.FoodItems:
                     if item.Name.upper() == name.upper():
-                        # Append the restaurant and item as a tuple (restaurant, item)
                         arr.append((res, menu, item))
         return arr

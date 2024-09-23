@@ -12,8 +12,9 @@ class MainMenu:
         6: "Logout"
     }
 
-    def __init__(self):
+    def __init__(self,guest_mode=False):
         self.__FoodManager = FoodManager()
+        self.guest_mode = guest_mode
         self.__cart = None
 
     def ShowRestaurants(self):
@@ -66,10 +67,12 @@ class MainMenu:
                 i += 1
             print("-" * 100)
 
-            choices = list(map(int, input("Please Choose your food items (comma separated): ").split(',')))
-            self.__cart = Cart(foodItems, choices)
-            self.__cart.ProcessOrder(foodItems)
-
+            if not self.guest_mode:
+                choices = list(map(int, input("Please choose your food items: ").split(',')))
+                cart = Cart(foodItems, choices)
+                cart.ProcessOrder(foodItems)
+            else:
+                print("As a guest, you can browse the food items but cannot place orders.")
         else:
             print("-" * 100)
             food_items = []
