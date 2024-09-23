@@ -36,13 +36,16 @@ class FoodManager:
     def __PrepareRestaurants(self):
         FoodMenus = self.__PrepareFoodMenus()
         res1 = Restaurant("A2B", 5, "Chennai", 15)
-        res1.FoodMenus = [FoodMenus[2]]  # Desserts Menu
+        res1.FoodMenus = [FoodMenus[0],FoodMenus[2]]
         res2 = Restaurant("Rameshwaram Cafe", 4.9, "Bangalore", 20)
-        res2.FoodMenus = [FoodMenus[2]]  # Desserts Menu
-        res3 = Restaurant("Annapoona", 3.9, "Coimbatore", 25)
-        res3.FoodMenus = [FoodMenus[2]]  # Desserts Menu
-        res4 = Restaurant("Tovo", 4.7, "Coimbatore", 16)
-        res4.FoodMenus = [FoodMenus[1], FoodMenus[0], FoodMenus[3]]  # Non-Veg, Veg, Special Menus
-        res5 = Restaurant("Dindugal Thalapakatti", 4.8, "Dindugal", 25)
-        res5.FoodMenus = [FoodMenus[0], FoodMenus[1]]  # Veg, Non-Veg Menus
-        return [res1, res2, res3, res4, res5]
+        res2.FoodMenus = [FoodMenus[0],FoodMenus[2]]
+        res3 = Restaurant("Tovo", 4.7, "Coimbatore", 16)
+        res3.FoodMenus = [FoodMenus[1], FoodMenus[2], FoodMenus[3]]
+        res4 = Restaurant("Dindugal Thalapakatti", 4.8, "Dindugal", 25)
+        res4.FoodMenus = [FoodMenus[1], FoodMenus[2]]
+        return [res1, res2, res3, res4]
+
+    def FindRestaurant(self,name):
+        for res in self.Restaurants:
+            if res.Name.upper() == name.upper():
+                return res
