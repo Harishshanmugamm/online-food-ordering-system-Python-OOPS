@@ -1,7 +1,7 @@
 from traceback import print_tb
 
 from Controllers.FoodManager import FoodManager
-# from Models.Restaurant import Restaurant
+from Models.Restaurant import Restaurant
 
 
 class MainMenu:
@@ -12,10 +12,10 @@ class MainMenu:
 
     def ShowRestaurants(self):
         print("-" * 50)
-        i=1
+        i = 1
         for res in self.__FoodManager.Restaurants:
-            print(f"{i}. {res.Name} => Rating : {res.Rating}")
-            i+=1
+            print(f"{i}. {res.DisplayItem()}")
+            i += 1
         print("-"*50)
         choice = int(input("Please Select the Restaurant: "))
         restaurants = self.__FoodManager.Restaurants
@@ -33,18 +33,17 @@ class MainMenu:
             print("-" * 100)
             i=1
             for item in foodItems:
-                print(f"{i}. {item.Name},  Rating: {item.Rating}, Price: {item.Price}, Description: {item.Description}")
+                print(f"{i}. {item.DisplayItem()}")
                 i+=1
             print("-" * 100)
         else:
             print("-"*100)
             for res in self.__FoodManager.Restaurants:
-                print(f"{res.Name} => Rating: {res.Rating} | Location: {res.Location}")
+                print(res.DisplayItem())
                 for menus in res.FoodMenus:
-                    print(f"  Menu: {menus.Name}")
+                    print(menus.DisplayItem())
                     for item in menus.FoodItems:
-                        print(
-                            f"    - {item.Name}: Rating: {item.Rating}, Price: {item.Price}, Description: {item.Description}")
+                        print(f"    - {item.DisplayItem()}")
                 print("-"*100)
             # print(f"{res.Name} => Rating : {res.Rating}")
         pass
@@ -62,14 +61,28 @@ class MainMenu:
             print(f"No Restaurant found on the name {resName}")
 
     def SearchFoodItem(self):
-        itemName = input ("Enter a Item Name ")
+        itemName = input("Enter an Item Name: ")
+        result = self.__FoodManager.FindFoodItem(itemName)
+
+        if result:
+            print('-' * 50)
+            print("Food Item Found....")
+            print('-' * 50)
+
+            for res, menu, item in result:
+                print(f"Restaurant: {res.DisplayItem()}")
+                print(f"  Menu: {menu.DisplayItem()}")
+                print(f"    - {item.DisplayItem()}")
+                print('-' * 50)
+        else:
+            print("Food Item not found.")
 
     def ShowFoodMenus(self,menus):
         print("\n\nList of Menus Available")
         print("-" * 50)
         i=1
         for menu in menus:
-            print(f"{i}  Menu: {menu.Name}")
+            print(f"{i}. {menu.DisplayItem()} ")
             i+=1
         print("-" * 50)
         choice = int(input("Please Select the Menu Type: "))

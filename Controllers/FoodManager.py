@@ -49,3 +49,13 @@ class FoodManager:
         for res in self.Restaurants:
             if res.Name.upper() == name.upper():
                 return res
+
+    def FindFoodItem(self, name):
+        arr = []
+        for res in self.Restaurants:
+            for menu in res.FoodMenus:
+                for item in menu.FoodItems:
+                    if item.Name.upper() == name.upper():
+                        # Append the restaurant and item as a tuple (restaurant, item)
+                        arr.append((res, menu, item))
+        return arr

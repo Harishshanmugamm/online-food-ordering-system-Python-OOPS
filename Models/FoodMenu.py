@@ -18,4 +18,6 @@ class FoodMenu(AbstractItem):
                 return
             self.__FoodItems = items
 
+    def DisplayItem(self):
+        return  f"Menu: {self.Name}"
 

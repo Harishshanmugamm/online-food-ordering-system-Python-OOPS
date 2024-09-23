@@ -1,3 +1,5 @@
+from abc import ABC
+
 from Models.AbstractItem import AbstractItem
 from Models.FoodMenu import FoodMenu
 class Restaurant(AbstractItem):
@@ -8,14 +10,17 @@ class Restaurant(AbstractItem):
         self.Offer=offer
         self.__FoodMenu=[]
 
-        @property
-        def FoodMenu(self):
+    @property
+    def FoodMenu(self):
             return self.__FoodMenu
 
-        @FoodMenu.setter
-        def FoodMenu(self, items):
-            for item in items:
-                if not isinstance(item, FoodMenu):
-                    print("Invalid FoodMenu..")
-                    return
-                self.__FoodMenu = items
+    @FoodMenu.setter
+    def FoodMenu(self, items):
+        for item in items:
+            if not isinstance(item, FoodMenu):
+                print("Invalid FoodMenu..")
+                return
+            self.__FoodMenu = items
+
+    def DisplayItem(self):
+            return f"{self.Name} => Rating: {self.Rating} | Location: {self.Location}"

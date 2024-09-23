@@ -6,3 +6,6 @@ class FoodItem(AbstractItem):
         self.Price = price
         self.Description = description
 
+    def DisplayItem(self):
+        return f" {self.Name},  Rating: {self.Rating}, Price: {self.Price}, Description: {self.Description}"
+
