@@ -43,7 +43,7 @@ This Online Food Ordering System is built using Python and follows an Object-Ori
   * Register: Allows users to register by providing their name, email, mobile, and password.
   * Guest: Enables guest access with browsing-only capabilities.
 
-` MainMenu.py `
+2. ` MainMenu.py `
 #### Provides access to the main functionalities:
 
   *  ShowRestaurants: Displays available restaurants.
@@ -52,21 +52,21 @@ This Online Food Ordering System is built using Python and follows an Object-Ori
   * SearchFoodItem: Allows users to search for food items.
   * ShowTopRestaurants: Lists top restaurants by rating or price.
 
-` Cart.py `
+3. ` Cart.py `
 #### Manages the cart functionality:
 
   * **Add to Cart**: Users can add selected food items to their cart.
   * **Remove Items**: Users can remove items from their cart.
   * **ProcessOrder**: Finalizes the order and displays the total price.
 
-` FoodManager.py `
+4. ` FoodManager.py `
 #### Responsible for managing restaurants, menus, and food items:
 
   * **Restaurants**: List of available restaurants.
   * **FindRestaurant**: Search for a specific restaurant by name.
   * **FindFoodItem**: Search for food items across all restaurants.
 
-` UserManager.py `
+5. ` UserManager.py `
 #### Handles user registration and authentication:
 
   * **FindUser**: Validates user credentials.
@@ -91,14 +91,15 @@ python main.py
 ```
 
 # Usage
-  . Login or Register: Start by logging in or registering as a user. Alternatively, you can continue as a guest.
-  . Browse Restaurants: View available restaurants, sort them by rating or price, and browse their menus.
-  . Search: Use the search feature to find a restaurant or a specific food item.
-  . Place Orders: If you’re logged in, add food items to your cart, and proceed to checkout with your preferred payment method.
-  . Guest Mode: If using guest mode, you can only browse menus and restaurants without placing any orders.
+  * Login or Register: Start by logging in or registering as a user. Alternatively, you can continue as a guest.
+  *  Browse Restaurants: View available restaurants, sort them by rating or price, and browse their menus.
+  * Search: Use the search feature to find a restaurant or a specific food item.
+  * Place Orders: If you’re logged in, add food items to your cart, and proceed to checkout with your preferred payment method.
+  * Guest Mode: If using guest mode, you can only browse menus and restaurants without placing any orders.
 
+# Project Structure
 ```
-#Project Structure
+
 
 |-- Controllers
 |   |-- FoodManager.py     # Manages food items and restaurants
